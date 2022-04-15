@@ -14,7 +14,7 @@ def reverse_num(x):
     return float(string[::-1]) if float_num else int(string[::-1])
 
 
-# tests
+# unit tests
 class Test(unittest.TestCase):
 
     def test_negative(self):

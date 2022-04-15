@@ -11,15 +11,15 @@ def avg_word_len(sentence):
     return round(sum(len(word) for word in words) / len(words), 2)
 
 
-# tests
+# unit tests
 class Test(unittest.TestCase):
 
     def test_sentence1(self):
-        print("Testing sentence1 \n")
+        print("Testing sentence1.. \n")
         self.assertEqual(3.86, avg_word_len("Nice to meet you Tom from MySpace."))
 
     def test_sentence2(self):
-        print("Testing float num.\n")
+        print("Testing sentence...\n")
         self.assertEqual(4.2, avg_word_len("This is another sentence, it won't make sense so? yeah."))
 
 
