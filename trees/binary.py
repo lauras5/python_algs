@@ -27,15 +27,22 @@ class Node:
         else:
             self.data = data
 
-    # print inorder
-    def PrintInorder(self):
-        if self.left:
-            self.left.PrintInorder()
-        print(self.data)
-        if self.right:
-            self.right.PrintInorder()
+    def delete(self):
+        pass
 
-    # print preorder
+    ''' BREADTH-FIRST TREE TRAVERSAL '''
+    def PrintLevelOrder(self):
+        queue = [self]
+        while len(queue) > 0:
+            curr = queue.pop(0)
+            print(curr.data)
+            if curr.left:
+                queue.append(curr.left)
+            if curr.right:
+                queue.append(curr.right)
+
+    ''' DEPTH-FIRST TREE TRAVERSAL '''
+    # print preorder <root><left><right>
     def PrintPreorder(self):
         print(self.data)
         if self.left:
@@ -43,7 +50,15 @@ class Node:
         if self.right:
             self.right.PrintPreorder()
 
-    # print postorder
+    # print inorder <left><root><right>
+    def PrintInorder(self):
+        if self.left:
+            self.left.PrintInorder()
+        print(self.data)
+        if self.right:
+            self.right.PrintInorder()
+
+    # print postorder <left><right><root>
     def PrintPostorder(self):
         if self.left:
             self.left.PrintPreorder()
@@ -54,6 +69,23 @@ class Node:
 
 # unit tests
 class Test(unittest.TestCase):
+
+    def test_print_preorder(self):
+        root = Node(10)
+        root.insert(6)
+        root.insert(14)
+        root.insert(3)
+        root.insert(1)
+        root.insert(4)
+        root.insert(12)
+        root.insert(18)
+        root.insert(11)
+        root.insert(7)
+
+        print("Testing postorder...")
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            root.PrintPreorder()
+            self.assertEqual(fake_out.getvalue(), "10\n6\n3\n1\n4\n7\n14\n12\n11\n18\n")
 
     def test_print_inorder(self):
         root = Node(10)
@@ -68,19 +100,6 @@ class Test(unittest.TestCase):
             root.PrintInorder()
             self.assertEqual(fake_out.getvalue(), "1\n3\n4\n6\n10\n14\n")
 
-    def test_print_preorder(self):
-        root = Node(10)
-        root.insert(6)
-        root.insert(14)
-        root.insert(3)
-        root.insert(1)
-        root.insert(4)
-
-        print("Testing postorder...")
-        with patch('sys.stdout', new=StringIO()) as fake_out:
-            root.PrintPreorder()
-            self.assertEqual(fake_out.getvalue(), "10\n6\n3\n1\n4\n14\n")
-
     def test_print_postorder(self):
         root = Node(10)
         root.insert(6)
@@ -88,11 +107,28 @@ class Test(unittest.TestCase):
         root.insert(3)
         root.insert(1)
         root.insert(4)
+        root.insert(12)
+        root.insert(18)
+        root.insert(11)
+        root.insert(7)
 
         print("Testing postorder...")
         with patch('sys.stdout', new=StringIO()) as fake_out:
             root.PrintPostorder()
-            self.assertEqual(fake_out.getvalue(), "6\n3\n1\n4\n14\n10\n")
+            self.assertEqual(fake_out.getvalue(), "6\n3\n1\n4\n7\n14\n12\n11\n18\n10\n")
+
+    def test_print_levelorder(self):
+        root = Node(10)
+        root.insert(6)
+        root.insert(14)
+        root.insert(3)
+        root.insert(1)
+        root.insert(4)
+
+        print("Testing levelorder...")
+        with patch('sys.stdout', new=StringIO()) as fake_out:
+            root.PrintLevelOrder()
+            self.assertEqual(fake_out.getvalue(), "10\n6\n14\n3\n1\n4\n")
 
 
 if __name__ == '__main__':
