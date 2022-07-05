@@ -27,8 +27,19 @@ class Node:
         else:
             self.data = data
 
-    def delete(self):
+    def delete(self, data):
         pass
+
+    def isDataInTree(self, data):
+        curr = self
+        while curr.data != data:
+            if curr.data > data:
+                curr = curr.left
+            else:
+                curr = curr.right
+            if curr is None:
+                return False
+        return True
 
     ''' BREADTH-FIRST TREE TRAVERSAL '''
     def PrintLevelOrder(self):
@@ -129,6 +140,19 @@ class Test(unittest.TestCase):
         with patch('sys.stdout', new=StringIO()) as fake_out:
             root.PrintLevelOrder()
             self.assertEqual(fake_out.getvalue(), "10\n6\n14\n3\n1\n4\n")
+
+    def test_search(self):
+        root = Node(10)
+        root.insert(6)
+        root.insert(14)
+        root.insert(3)
+        root.insert(1)
+        root.insert(4)
+
+        print("Testing isDataInTree...")
+        self.assertTrue(root.isDataInTree(10))
+        self.assertTrue(root.isDataInTree(1))
+        self.assertFalse(root.isDataInTree(25))
 
 
 if __name__ == '__main__':
