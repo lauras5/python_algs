@@ -4,12 +4,14 @@ import numpy as np
 from sklearn.datasets import load_breast_cancer
 from sklearn.model_selection import train_test_split
 
-class perceptron:
+
+class Perceptron:
     """An implementation of the perceptron algorithm.
     Note that this implementation does not include a bias term"""
 
     def __init__(self, iterations=100, learning_rate=0.2,
                  plot_data=False, random_w=False, seed=42):
+        self.converged = None
         self.wold = None
         self.iterations = iterations
         self.learning_rate = learning_rate
@@ -120,7 +122,7 @@ num_epochs = [2, 5, 10, 20, 40, 100, 200, 500, 1000, 2000, 4000]
 
 for epochs in num_epochs:
     # train and evaluate perceptron
-    p = perceptron(iterations=epochs, learning_rate=0.1)
+    p = Perceptron(iterations=epochs, learning_rate=0.1)
     p.fit(X_train, y_train)
 
     # train accuracy

@@ -55,4 +55,3 @@ result = countPattern(pattern_to_find, file_name)
 end_time = time.time()
 print(f"The pattern '{pattern_to_find}' appears {result} times in the file.")
 print(f"Time taken: {end_time - start_time} seconds.")
-
