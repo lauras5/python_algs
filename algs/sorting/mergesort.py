@@ -46,7 +46,7 @@ def mergeSort(arr):
 
         return arr
 
-class TestBucketSort(unittest.TestCase):
+class TestMergeSort(unittest.TestCase):
 
     def test_merge_sort(self):
         input_arr = [0.42, 0.32, 0.33, 0.52, 0.37, 0.47, 0.51, 0.48, 0.47, 1.20]

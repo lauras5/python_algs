@@ -41,6 +41,4 @@ def quickSort(arr):
 array_to_be_sorted = [4, 2, 7, 3, 1, 6]
 print("Original Array: ", array_to_be_sorted)
 print("Sorted Array: ", quickSort(array_to_be_sorted))
-# output:
-# Original Array:  [4, 2, 7, 3, 1, 6]
-# Sorted Array:  [1, 2, 3, 4, 6, 7]
+
