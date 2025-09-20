@@ -3,6 +3,12 @@
 A collection of Python implementations for classic algorithms, data structures, and practice problems.  
 This repo is structured into topic-focused directories and includes unit tests to validate solutions.
 
+## 🎯 Goals
+
+* Practice and refine algorithm skills.
+* Maintain clean, tested, Pythonic implementations.
+* Explore ML and vector DB concepts alongside core CS fundamentals.
+
 ---
 
 ## 📂 Repository Structure
@@ -56,10 +62,4 @@ Expected tests include:
 * two_sum
 * median of two sorted arrays (binary search solution)
 
----
 
-## 🎯 Goals
-
-* Practice and refine algorithm skills.
-* Maintain clean, tested, Pythonic implementations.
-* Explore ML and vector DB concepts alongside core CS fundamentals.
