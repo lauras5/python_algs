@@ -3,4 +3,6 @@ def recur_fibo(n: int) -> int:
 
 
 if __name__ == '__main__':
-    print(recur_fibo(5))
+    print(recur_fibo(6))
+    print(recur_fibo(7))
+    print(recur_fibo(8))
